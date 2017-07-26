@@ -13,12 +13,22 @@ class App extends React.Component {
 
     //  Welcome Component Alert usign Props
     alert = () => {
-        alert("Welcome to react")
+        alert("This is Own Alert")
+    };
+
+    parentFunction(req) {
+        this.setState({
+            headerTitle: req
+        })
     };
 
     //  Component Rendering
     render() {
-        return <Welcome message={this.alert}/>;
+        return <div>
+            <Header message={this.state.headerTitle}/>
+            <br/>
+            <Welcome message={this.alert} parentMessage={this.parentFunction.bind(this)}/>
+        </div>
     }
 }
 ReactDom.render(
